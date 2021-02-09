@@ -1,11 +1,14 @@
 // tailwind.config.js
 module.exports = {
+    purge: [
+      
+    ],
+    darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {
-            outline: {
-                blue: '1px solid #000033',
-            }
-        }
+        extend: {},
+    },
+    variants: {
+        extend: {},
     },
     plugins: [
         require('@tailwindcss/forms'),
