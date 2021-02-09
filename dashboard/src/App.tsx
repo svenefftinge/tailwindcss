@@ -1,13 +1,13 @@
 import React from 'react';
 import Menu from './Menu';
 import workspace from './icons/Workspaces.svg'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Workspaces } from './workspaces/Workspaces';
 import { Settings } from './settings/Settings';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <Menu entries={[
           {
@@ -28,11 +28,12 @@ function App() {
             link: 'https://www.gitpod.io/blog/',
           },
         ]} />
-
-        <Route path="/" exact component={Workspaces} />
-        <Route path="/settings/" component={Settings} />
+        <Switch>
+          <Route path="/" exact component={Workspaces} />
+          <Route path="/settings/" component={Settings} />
+        </Switch>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

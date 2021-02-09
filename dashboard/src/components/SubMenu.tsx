@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export interface SubMenuEntry {
     title: string
     href: string
@@ -16,7 +18,9 @@ export function SubMenu(props: { menuEntries: SubMenuEntry[] }) {
                     classes += " text-gray-500 hover:border-gray-400 ";
                 }
                 return <li className={classes}>
-                    <a href={e.href}>{e.title}</a>
+                    <Link to={e.href}>
+                        {e.title}
+                    </Link>
                 </li>;
             })}
         </ul>

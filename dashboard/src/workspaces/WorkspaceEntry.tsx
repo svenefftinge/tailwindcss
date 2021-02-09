@@ -62,13 +62,13 @@ export function WorkspaceEntry(desc: WorkspaceDescription) {
             </div>
             <div className="flex w-1/12 self-center space-x-2">
                 <div className="w-1/3">
-                    {desc.shared ? <img className="m-1 w-4 h-4" src={OpenLock}/> : null}
+                    {desc.shared ? <img className="m-1 w-4 h-4" src={OpenLock} alt="Shared"/> : null}
                 </div>
                 <div className="w-1/3">
-                    {desc.pinned ? <img className="w-5 h-6" src={Pin}/> : null}
+                    {desc.pinned ? <img className="w-5 h-6" src={Pin} alt="Pinned"/> : null}
                 </div>
                 <div className="w-1/3 hover:bg-gray-200">
-                    <img className="w-6 h-6" src={ThreeDots}/>
+                    <img className="w-6 h-6" src={ThreeDots}  alt="Actions"/>
                 </div>
             </div>
         </div>;

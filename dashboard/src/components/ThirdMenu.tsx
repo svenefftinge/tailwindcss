@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export interface ThirdMenuEntry {
     title: string
@@ -16,7 +17,9 @@ export function ThirdMenu(props: { entries: ThirdMenuEntry[]}) {
                     classes += " text-gray-400 hover:bg-gray-300 hover:text-white ";
                 }
                 return <li className={classes}>
-                    <a href={e.href}>{e.title}</a>
+                    <Link to={e.href}>
+                        {e.title}
+                    </Link>
                 </li>;
             })}
         </ul>
