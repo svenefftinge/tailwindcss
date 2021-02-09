@@ -1,7 +1,7 @@
 import Toggle from "../components/Toggle"
 import { WorkspaceDescription, WorkspaceEntry } from "./WorkspaceEntry"
 
-export function Workspaces() {
+export function WorkspacesDetails() {
     return <>
         <div className="lg:px-28 px-10 pt-6 pb-16 border-gray-100 border-t-2 border-b-2">
             <p className="text-2xl text-gray-700 font-semibold leading-relaxed">Workspaces</p>
