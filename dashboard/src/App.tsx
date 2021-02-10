@@ -3,6 +3,7 @@ import Menu from './Menu';
 import workspace from './icons/Workspaces.svg'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Workspaces } from './workspaces/Workspaces';
+import { Usage } from './account/Usage';
 import { Settings } from './settings/Settings';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Workspaces} />
           <Route path="/settings/" component={Settings} />
+          <Route path="/usage" exact component={Usage} />
         </Switch>
       </div>
     </BrowserRouter>

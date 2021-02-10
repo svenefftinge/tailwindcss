@@ -1,4 +1,23 @@
-import { SubMenu, SubMenuEntry } from "../components/SubMenu";
+import { SubMenu } from "../components/SubMenu";
+
+const subMenu = [
+    {
+        title: 'Settings',
+        link: '/settings'
+    },
+    {
+        title: 'Usage',
+        link: '/usage'
+    },
+    {
+        title: 'Subscriptions',
+        link: '/subscriptions'
+    },
+    {
+        title: 'Teams',
+        link: '/teams'
+    },
+];
 
 export function SettingsHeader() {
     return <div className="lg:px-28 px-10 pt-6 border-gray-100 border-t-2 border-b-2">
@@ -12,24 +31,7 @@ export function SettingsHeader() {
         </div>
         <div className="px-4">
             <SubMenu menuEntries={
-                [
-                    {
-                        title: 'Settings',
-                        href: '/settings/#'
-                    } as SubMenuEntry,
-                    {
-                        title: 'Usage',
-                        href: '/settings/#usage'
-                    } as SubMenuEntry,
-                    {
-                        title: 'Subscriptions',
-                        href: '/settings/#subscriptions'
-                    } as SubMenuEntry,
-                    {
-                        title: 'Teams',
-                        href: '/settings/#teams'
-                    } as SubMenuEntry,
-                ]
+                subMenu
             } />
         </div>
     </div>;
