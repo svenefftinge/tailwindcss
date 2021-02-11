@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ServiceContext } from "./service/service";
 
 function Menu(props: { entries: { icon?: string, title: string, link: string }[] }) {
+    const ctx = useContext(ServiceContext);
     return (
         <header className="lg:px-28 px-10 bg-white flex flex-wrap items-center pt-3">
             <style dangerouslySetInnerHTML={{
@@ -49,7 +52,7 @@ function Menu(props: { entries: { icon?: string, title: string, link: string }[]
                 <div className="flex-1" />
                 <Link className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor m-l-auto" to="/settings">
                     <img className="rounded-full w-8 h-8 border-2 border-transparent hover:border-indigo-400"
-                        src="https://avatars.githubusercontent.com/u/5750?s=400&u=95c71e43d35f4b2f7ea95474f5058bb51986f556&v=4" alt="Andy Leverenz" />
+                        src={ctx.getUser().avatarUrl} alt={ctx.getUser().name} />
                 </Link>
             </div>
         </header>

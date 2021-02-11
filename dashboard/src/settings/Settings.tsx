@@ -31,7 +31,7 @@ export function Settings() {
         <SettingsHeader />
         <div className="lg:px-28 px-10 flex pt-10">
             <ThirdMenu entries={settingsSubMenu} />
-            <div className="mx-5 px-5 py-3 bg-gray-100 rounded-lg w-full">
+            <div className="ml-5 px-5 py-3 bg-gray-100 rounded-lg w-full">
                 <Switch>
                     <Route path="/settings" exact component={AccountSettings} />
                     <Route path="/settings/notifications" exact component={NotificationsSettings} />

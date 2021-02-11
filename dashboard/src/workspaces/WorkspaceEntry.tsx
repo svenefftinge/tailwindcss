@@ -1,19 +1,7 @@
 import OpenLock from '../icons/OpenLock.svg';
 import Pin from '../icons/Pin.svg';
 import ThreeDots from '../icons/ThreeDots.svg';
-
-export interface WorkspaceDescription {
-    id: string,
-    project: string,
-    contextTitle: string,
-    contextName: string,
-    currentBranch: string, 
-    currentChanges: string,
-    state: 'Running'|'Stopped'|'Error'|'Stopping'|'Starting',
-    since: string,
-    shared: boolean,
-    pinned: boolean
-}
+import { WorkspaceDescription } from '../service/service';
 
 export function WorkspaceEntry(desc: WorkspaceDescription) {
     let stateClassName = 'rounded-full px-3 text-sm leading-relaxed align-middle';
