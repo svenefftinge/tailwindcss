@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Menu from './Menu';
 import workspace from './icons/Workspaces.svg'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Workspaces } from './workspaces/Workspaces';
-import { Usage } from './account/Usage';
-import { Settings } from './settings/Settings';
 import { ServiceContext, SimpleServiceImpl } from './service/service';
+
+const Notifications = React.lazy(() => import('./account/Notifications'));
+const Profile = React.lazy(() => import('./account/Profile'));
+const Subscriptions = React.lazy(() => import('./account/Subscriptions'));
+const DefaultIDE = React.lazy(() => import('./settings/DefaultIDE'));
+const EnvVars = React.lazy(() => import('./settings/EnvVars'));
+const FeaturePreview = React.lazy(() => import('./settings/FeaturePreview'));
+const GitIntegration = React.lazy(() => import('./settings/GitIntegration'));
+
 
 function App() {
   return (
@@ -32,11 +39,18 @@ function App() {
               link: 'https://www.gitpod.io/blog/',
             },
           ]} />
-          <Switch>
-            <Route path="/" exact component={Workspaces} />
-            <Route path="/settings/" component={Settings} />
-            <Route path="/usage" exact component={Usage} />
-          </Switch>
+          <Suspense fallback={<div></div>}>
+            <Switch>
+              <Route path="/" exact component={Workspaces} />
+              <Route path="/profile" exact component={Profile} />
+              <Route path="/notifications" exact component={Notifications} />
+              <Route path="/subscriptions" exact component={Subscriptions} />
+              <Route path="/env-vars" exact component={EnvVars} />
+              <Route path="/git-integration" exact component={GitIntegration} />
+              <Route path="/feature-preview" exact component={FeaturePreview} />
+              <Route path="/default-ide" exact component={DefaultIDE} />
+            </Switch>
+          </Suspense>
         </div>
       </ServiceContext.Provider>
     </BrowserRouter>

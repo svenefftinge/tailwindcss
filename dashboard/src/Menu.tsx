@@ -50,7 +50,7 @@ function Menu(props: { entries: { icon?: string, title: string, link: string }[]
                     </ul>
                 </nav>
                 <div className="flex-1" />
-                <Link className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor m-l-auto" to="/settings">
+                <Link className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor m-l-auto" to="/profile">
                     <img className="rounded-full w-8 h-8 border-2 border-transparent hover:border-indigo-400"
                         src={ctx.getUser().avatarUrl} alt={ctx.getUser().name} />
                 </Link>

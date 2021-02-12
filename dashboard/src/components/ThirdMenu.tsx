@@ -5,9 +5,9 @@ export interface ThirdMenuEntry {
     link: string
 }
 
-export function ThirdMenu(props: { entries: ThirdMenuEntry[]}) {
+export function ThirdMenu(props: { entries: ThirdMenuEntry[] }) {
     return <div>
-        <ul className="flex flex-col text-base text-gray-700 pt-4 lg:pt-0">
+        <ul className="flex flex-col text-base text-gray-700 pt-4 lg:pt-0 w-56">
             {props.entries.map(e => {
                 let classes = "flex block py-2 font-sm px-4 rounded-lg";
                 if (e.link.toLowerCase() === window.location.pathname) {
@@ -15,11 +15,11 @@ export function ThirdMenu(props: { entries: ThirdMenuEntry[]}) {
                 } else {
                     classes += " text-gray-400 hover:bg-gray-300 hover:text-white ";
                 }
-                return <li className={classes}>
-                    <Link to={e.link}>
+                return <Link to={e.link}>
+                    <li className={classes}>
                         {e.title}
-                    </Link>
-                </li>;
+                    </li>
+                </Link>;
             })}
         </ul>
     </div>;
