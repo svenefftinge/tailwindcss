@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ServiceContext } from "./service/service";
+import { ServiceContext } from "../service/service";
 
 function Menu(props: { entries: { icon?: string, title: string, link: string }[] }) {
     const ctx = useContext(ServiceContext);
@@ -34,7 +34,7 @@ function Menu(props: { entries: { icon?: string, title: string, link: string }[]
                 <nav>
                     <ul className="lg:flex lg:flex-1 items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
                         {props.entries.map(e => {
-                            let classes = "flex block py-4 border-b-4 border-transparent font-medium";
+                            let classes = "flex block py-4 border-b-4 border-transparent text-sm font-medium";
                             if (window.location.pathname.toLowerCase() === e.link.toLowerCase()) {
                                 classes += " border-gray-700";
                             } else {

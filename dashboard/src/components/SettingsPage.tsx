@@ -23,9 +23,9 @@ export function SettingsPage(p: Props) {
     ];
     return <div>
         <Header title={p.title} subtitle={p.subtitle} tabs={tabs}/>
-        <div className='lg:px-28 px-10 flex pt-10'>
+        <div className='lg:px-28 px-10 flex pt-9'>
             <ThirdMenu entries={p.menuEntries} />
-            <div className='ml-5 px-5 py-3 bg-gray-100 rounded-lg w-full'>
+            <div className='ml-5 pl-12 w-full pt-1'>
                 {p.children}
             </div>
         </div>

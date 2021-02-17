@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import Menu from './Menu';
+import Menu from './components/Menu';
 import workspace from './icons/Workspaces.svg'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Workspaces } from './workspaces/Workspaces';
@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <ServiceContext.Provider value={new SimpleServiceImpl()}>
 
-        <div>
+        <div className="container">
           <Menu entries={[
             {
               icon: workspace,
