@@ -12,7 +12,7 @@ export default function Header(p: HeaderProps) {
         <Separator />
         <div className="flex py-10">
             <div className="">
-                <h1>{p.title} test</h1>
+                <h1>{p.title}</h1>
                 <h2 className="pt-1">{p.subtitle}</h2>
             </div>
         </div>

@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import Header from "../components/Header";
-import Text from "../components/Text";
 import Toggle from "../components/Toggle"
 import { ServiceContext } from "../service/service";
 import { WorkspaceEntry } from "./WorkspaceEntry"
@@ -14,7 +13,7 @@ export function Workspaces() {
         <Header title="Workspaces" subtitle="Open and Share Workspaces"/>
         
         <div className="lg:px-28 px-10 pt-4 flex">
-            <Text placeholder="Search Workspace" />
+            <input type="text" placeholder="Search Workspace"  onChange={(v) => {console.log(v)}} />
 
             <Toggle entries={[{
                 title: 'Active',

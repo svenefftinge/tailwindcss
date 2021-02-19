@@ -1,30 +1,39 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import Modal from "../components/Modal";
 import { SettingsPage } from "../components/SettingsPage";
-import Text from "../components/Text";
 import { ServiceContext } from "../service/service";
 import accountMenu from "./account-menu";
 
 export default function Profile() {
     const ctx = useContext(ServiceContext);
+    const [modal, setModal] = useState(false);
     return <div>
+        <Modal visible={modal}>
+            <h3>Do you really want to delete your account?</h3>
+            <p>This action will remove all the data associated with your account in Gitpod and cannot be reversed.</p>
+            <div className="flex justify-end pt-6">
+                <button className="border-red-900 bg-red-500 hover:bg-red-700" onClick={() => setModal(false)}>Delete Account</button>
+            </div>
+        </Modal>
+
         <SettingsPage title='Account' subtitle='Profile details' menuEntries={accountMenu}>
-            <h3 className="pb-6">Personal Information</h3>
-            <div className="flex flex-row">
-                <div>
+            <h3>Personal Information</h3>
+            <div className="flex flex-col lg:flex-row">
+                <div className="pb-6">
                     <h4>Name</h4>
-                    <Text value="John Doe"/>
+                    <input type="text" value={ctx.getUser().name} onChange={(v) => { console.log(v) }} />
                     <h4 className="pt-6">Email</h4>
-                    <Text value="jsmith@example.com"/>
+                    <input type="text" value={ctx.getUser().email} onChange={(v) => { console.log(v) }} />
                 </div>
-                <div className="pl-14">
+                <div className="lg:pl-14">
                     <h4>Avatar</h4>
                     <img className="rounded-full w-24 h-24 border-2 border-transparent hover:border-indigo-400"
                         src={ctx.getUser().avatarUrl} alt={ctx.getUser().name} />
                 </div>
             </div>
-            <h3 className="pt-14 pb-2">Delete Account</h3>
+            <h3 className="pt-14">Delete Account</h3>
             <p className="text-sm text-gray-400 pb-4">This action will remove all the data associated with your account in Gitpod.</p>
-            <input type="button" value="Delete Account" className="px-3 py-2 text-white text-xs rounded-md border-2 border-red-900 bg-red-500"/> 
+            <button className="border-red-900 bg-red-500 hover:bg-red-700" onClick={() => setModal(true)}>Delete Account</button>
         </SettingsPage>
     </div>;
 }
