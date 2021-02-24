@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import Menu from './components/Menu';
-import workspace from './icons/Workspaces.svg'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Workspaces } from './workspaces/Workspaces';
 import { ServiceContext, SimpleServiceImpl } from './service/service';
@@ -20,12 +19,17 @@ function App() {
       <ServiceContext.Provider value={new SimpleServiceImpl()}>
 
         <div className="container">
-          <Menu entries={[
+          <Menu left={[
             {
-              icon: workspace,
               title: 'Workspaces',
               link: '/'
             },
+            {
+              title: 'Settings',
+              link: '/account'
+            },
+          ]}
+            right={[
             {
               title: 'Docs',
               link: 'https://www.gitpod.io/docs/',
@@ -33,11 +37,7 @@ function App() {
             {
               title: 'Community',
               link: 'https://community.gitpod.io/',
-            },
-            {
-              title: 'Blog',
-              link: 'https://www.gitpod.io/blog/',
-            },
+            }
           ]} />
           <Suspense fallback={<div></div>}>
             <Switch>

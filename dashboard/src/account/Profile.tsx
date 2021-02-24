@@ -7,12 +7,13 @@ import accountMenu from "./account-menu";
 export default function Profile() {
     const ctx = useContext(ServiceContext);
     const [modal, setModal] = useState(false);
+    const close = () => setModal(false);
     return <div>
         <Modal visible={modal}>
             <h3>Do you really want to delete your account?</h3>
             <p>This action will remove all the data associated with your account in Gitpod and cannot be reversed.</p>
             <div className="flex justify-end pt-6">
-                <button className="border-red-900 bg-red-500 hover:bg-red-700" onClick={() => setModal(false)}>Delete Account</button>
+                <button className="border-red-900 bg-red-500 hover:bg-red-700" onClick={close}>Delete Account</button>
             </div>
         </Modal>
 

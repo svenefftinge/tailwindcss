@@ -9,7 +9,6 @@ export interface HeaderProps {
 
 export default function Header(p: HeaderProps) {
     return <div className="lg:px-28 px-10 border-gray-200">
-        <Separator />
         <div className="flex py-10">
             <div className="">
                 <h1>{p.title}</h1>
